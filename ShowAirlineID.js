@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Show Airline ID
 // @namespace    https://brokenbutler.com/
-// @version      1.0.0
+// @version      1.1.0
 // @description  try to take over the world!
 // @author       BrokenButler
 // @match        https://*.airline-club.com/
