@@ -10,7 +10,7 @@
 // ==/UserScript==
 
 //Get the AirlineLabel Element
-let airlineLabel = document.getElementsByClassName('currentAirline label')[0]
+let airlineLabel = document.getElementsByClassName('currentAirline label')[0];
 let childLogo = airlineLabel.firstChild;
 
 //Get the AirlineName and ID
