@@ -9,10 +9,17 @@
 // @grant        none
 // ==/UserScript==
 
+//Get the AirlineLabel Element
 let airlineLabel = document.getElementsByClassName('currentAirline label')[0]
 let childLogo = airlineLabel.firstChild;
-let airlineID = childLogo.src.split('/')[4];
+
+//Get the AirlineName and ID
 let airlineName = airlineLabel.innerText;
+let airlineID = childLogo.src.split('/')[4];
+
+//Generate 'new' name
 let newAirlineName = `${airlineName} (${airlineID})`;
+
+//Insert new name and re-insert the logo
 airlineLabel.innerText = newAirlineName;
 airlineLabel.prepend(childLogo);
