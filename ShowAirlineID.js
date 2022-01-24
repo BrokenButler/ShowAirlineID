@@ -28,7 +28,7 @@ function displayOwnAirlineID() {
 
 
 function displayRivalAirlineID() {
-    let rivalsCanvas = document.getElementById('rivalsCanvas')
+    let rivalsCanvas = document.getElementById('rivalsCanvas');
     let airlines = rivalsCanvas.getElementsByClassName('table-row clickable');
 
     for (let airline of airlines) {
