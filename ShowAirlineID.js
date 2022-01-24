@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Show Airline ID
-// @namespace    http://brokenbutler.com/
+// @namespace    https://brokenbutler.com/
 // @version      1.0.0
 // @description  try to take over the world!
 // @author       BrokenButler
@@ -9,17 +9,34 @@
 // @grant        none
 // ==/UserScript==
 
+displayOwnAirlineID();
+displayRivalAirlineID();
+
+function displayOwnAirlineID() {
 //Get the AirlineLabel Element
-let airlineLabel = document.getElementsByClassName('currentAirline label')[0];
-let childLogo = airlineLabel.firstChild;
+    let airlineLabel = document.getElementsByClassName('currentAirline label')[0];
+    let airlineLogo = airlineLabel.firstChild;
 
 //Get the AirlineName and ID
-let airlineName = airlineLabel.innerText;
-let airlineID = childLogo.src.split('/')[4];
-
-//Generate 'new' name
-let newAirlineName = `${airlineName} (${airlineID})`;
+    let airlineName = airlineLabel.innerText;
+    let airlineID = airlineLogo.src.split('/')[4];
 
 //Insert new name and re-insert the logo
-airlineLabel.innerText = newAirlineName;
-airlineLabel.prepend(childLogo);
+    airlineLabel.innerText = `${airlineName} (${airlineID})`;
+    airlineLabel.prepend(airlineLogo);
+}
+
+
+function displayRivalAirlineID() {
+    let rivalsCanvas = document.getElementById('rivalsCanvas')
+    let airlines = rivalsCanvas.getElementsByClassName('table-row clickable');
+
+    for (let airline of airlines) {
+        let airlineID = airline.dataset.airlineId;
+        let airlineName = airline.children[1].innerText;
+        let airlineLogo = airline.children[1].firstElementChild.firstChild;
+
+        airline.children[1].firstElementChild.innerText = `${airlineName} (${airlineID})`;
+        airline.children[1].firstElementChild.prepend(airlineLogo);
+    }
+}
